@@ -12,4 +12,6 @@ urlpatterns = [
     path('u/', include('usuarios.urls')),
 
     path('g/', include('juegos.urls')),
+
+    path('admin/', include('admin.urls')),
 ]
