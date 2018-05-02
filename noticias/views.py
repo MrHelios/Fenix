@@ -1,8 +1,15 @@
-#from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import Http404
+from django.shortcuts import render
+
+from noticias.models import Noticia
 
 def ultimasNoticias(request):
-    return HttpResponse('ultimas noticias')
+    n = Noticia.objects.all()
+    return render(request, 'ultimas_noticias.html', {'noticia': n})
 
 def noticiaPorId(request, num):
-    return HttpResponse(str(num))
+    try:
+        n = Noticia.objects.get(pk=num)
+    except Noticia.DoesNotExist:
+        raise Http404('La noticia que quiere acceder no existe')
+    return render(request, 'noticia_id.html', {'noti': n})

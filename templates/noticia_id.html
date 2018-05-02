@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Noticia</title>
+    </head>
+    <body>
+        {% if noti %}
+            <h2>{{noti.titulo}}</h2>
+            <p>{{noti.descripcion}}</p>
+            <p>{{noti.text}}</p>
+        {% endif %}
+    </body>
+</html>
