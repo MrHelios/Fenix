@@ -1,9 +1,8 @@
-from django.http import HttpResponse
-#from django.shortcuts import render
+from django.http import HttpResponse, Http404
 
 def juego1_view(request):
-    return HttpResponse('Esto es el juego1')
+    raise Http404('No puedes acceder a esta pagina.')
 
 
 def juego1_download(request):
-    return HttpResponse('Aqui podras bajar el juego')
+    raise Http404('No puedes acceder a esta pagina.')

@@ -6,6 +6,6 @@ class JuegoPageTest(TestCase):
         r = self.client.get('/g/juego1')
         self.assertEqual(r.status_code, 404)
 
-    def test_juego1_page(self):
+    def test_juego1_download_page(self):
         r = self.client.get('/g/juego1/download')
         self.assertEqual(r.status_code, 404)
