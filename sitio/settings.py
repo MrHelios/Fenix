@@ -1,11 +1,11 @@
 import os
-from seguridad import clave_seguridad, estado_debug
+from seguridad import clave_seguridad, estado_debug, hosts
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 SECRET_KEY = clave_seguridad
 DEBUG = estado_debug
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = hosts
 
 # Application definition
 INSTALLED_APPS = [
