@@ -4,7 +4,10 @@ from django.shortcuts import render
 from noticias.models import Noticia
 
 def ultimasNoticias(request):
-    n = Noticia.objects.all()
+    if Noticia.objects.count() != 0:
+        n = Noticia.objects.all()
+    else:
+        n = []
     return render(request, 'ultimas_noticias.html', {'noticia': n})
 
 def noticiaPorId(request, num):
