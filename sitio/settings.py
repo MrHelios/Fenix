@@ -1,13 +1,10 @@
 import os
+from seguridad import clave_seguridad, estado_debug
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '@c1bum7*pem6r-!9hmw=t7e(0i7v!z=%%i&66*j8ybwzgig@!_'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
+SECRET_KEY = clave_seguridad
+DEBUG = estado_debug
 ALLOWED_HOSTS = []
 
 # Application definition
