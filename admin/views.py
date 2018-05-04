@@ -7,6 +7,7 @@ from django.http import HttpResponse
 ADMIN_URL_SUBIR = '/admin/subir'
 ADMIN_URL_LOGIN = '/admin/login'
 ADMIN_URL_LOGOUT = '/admin/logout'
+ADMIN_URL_CREAR_NOTICIA = '/admin/noticia/crear'
 
 def login_admin(request):
     if request.user.is_superuser:
@@ -40,3 +41,11 @@ def admin_subir(request):
         return render(request, 'subir.html')
     else:
         return HttpResponse(status=404, content='La pagina que quiere acceder no existe')
+
+def admin_crear_noticia(request):
+    if request.method == 'POST':
+        t = request.POST['titulo']
+        d = request.POST['descripcion']
+        c = request.POST['contenido']
+        return HttpResponse("%s %s %s" % (t,d,c))
+    return render(request, 'noticia_crear.html')

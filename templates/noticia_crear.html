@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Admin | Noticia crear</title>
+    </head>
+    <body>
+        <h1>Crear Noticias</h1>
+
+        <form action="/admin/noticia/crear" method="post">
+            {% csrf_token %}
+            <input type="text" name="titulo" placeholder="Titulo.."><br>
+            <textarea type="text" name="descripcion" rows="2" placeholder="Descripcion.."></textarea><br>
+            <textarea type="text" name="contenido" rows="10" placeholder="Contenido.."></textarea><br>
+
+            <input type="submit" name="crear" value="Crear">
+        </form>
+    </body>
+</html>
