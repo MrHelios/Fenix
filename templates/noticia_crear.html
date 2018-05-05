@@ -1,19 +1,93 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
         <title>Admin | Noticia crear</title>
+        <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+        <style media="screen">
+            #img-nav {
+                width: 40px;
+                height: 40px;
+            }
+
+            #img-footer {
+                width: 80px;
+                height: 80px;
+            }
+
+            .center {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 50%;
+            }
+
+            .derecha-li {
+                position: fixed;
+                right: 0px;
+            }
+
+            .footer {
+                position: fixed;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                background-color: #323232;
+                color: white;
+                text-align: center;
+
+                padding-top: 5px;
+                padding-bottom: 5px;
+            }
+        </style>
     </head>
     <body>
-        <h1>Crear Noticias</h1>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <img id="img-nav" src="{% static 'images/logo_admin.png'%}" alt="">
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Subir</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Crear Noticia</a>
+                </li>
 
-        <form action="/admin/noticia/crear" method="post">
-            {% csrf_token %}
-            <input type="text" name="titulo" placeholder="Titulo.."><br>
-            <textarea type="text" name="descripcion" rows="2" placeholder="Descripcion.."></textarea><br>
-            <textarea type="text" name="contenido" rows="10" placeholder="Contenido.."></textarea><br>
+                <li class="nav-item derecha-li">
+                    <a class="nav-link" href="#">Logout</a>
+                </li>
+            </ul>
+        </nav>
 
-            <input type="submit" name="crear" value="Crear">
-        </form>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-8">
+                    <form class="" action="/admin/noticia/crear" method="post">
+                        <h2>Crear noticia</h2>
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <input class="form-control" type="text" name="titulo" placeholder="Titulo..">
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" type="text" name="descripcion" rows="2" placeholder="Descripcion.."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" type="text" name="contenido" rows="10" placeholder="Contenido.."></textarea>
+                        </div>
+                        <input class="btn btn-danger" type="submit" name="crear" value="Crear">
+                    </form>
+                </div>
+                <div class="col-md-2">
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <img id="img-footer" class="center" src="{% static 'images/logo_admin.png'%}" alt="">
+        </footer>
     </body>
 </html>
