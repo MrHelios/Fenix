@@ -1,16 +1,67 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
         <title>Login admin</title>
+        <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+        <style media="screen">
+            html, body {
+                background-color: rgb(230,230,230);
+            }
+
+            .separation-img {
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+
+            .center-text {
+                text-align: center;
+            }
+
+            .center {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 50%;
+            }
+
+            .bordes-p {
+                border-style: solid;
+                border-color: red;
+                border-width: thin;
+            }
+        </style>
     </head>
     <body>
-        <h1>Login admin</h1>
-        <form class="" action="/admin/login" method="post">
-            {% csrf_token %}
-            <input type="text" name="admin" value=""><br>
-            <input type="password" name="password" value=""><br>
-            <input type="submit" value="Entrar">
-        </form>
+        <div class="container">
+            <div class="row">
+
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                </div>
+                <div class="col-md-6">
+                    <form class="" action="/admin/login" method="post">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <div class="separation-img">
+                                <img class="center" src="{% static 'images/logo_admin.png' %}" alt="">
+                            </div>
+
+                            <p class="bordes-p center-text">Acceso para administradores</p>
+
+                            <input class="form-control" type="text" name="admin" placeholder="Admin">
+                            <input class="form-control" type="password" name="password" placeholder="Contraseña">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control btn btn-danger" type="submit" value="Iniciar Sesion">
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-3">
+                </div>
+            </div>
+        </div>
     </body>
 </html>
